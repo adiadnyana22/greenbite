@@ -31,9 +31,15 @@ class FoodController extends Controller
 
             if($search) $foodQuery = Food::where('name', 'like', '%'.$search.'%');
             if($distance) !$foodQuery ? $foodQuery = Food::whereHas('mitra', function($query) use ($distance, $latitude, $longitude) {
-                $query->whereBetween('latitude', [$latitude - (1/110.574 * $distance), $latitude + (1/110.574 * $distance)])->whereBetween('longitude', [$longitude - (1/111.320*cos($latitude) * $distance), $longitude + (1/111.320*cos($latitude) * $distance)]);
+                $query->selectRaw("
+                (6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) +
+                sin(radians($latitude)) * sin(radians(latitude)))) AS jarak")
+                ->having('jarak', '<=', $distance);
             }) : $foodQuery = $foodQuery->whereHas('mitra', function ($query) use ($distance, $latitude, $longitude) {
-                $query->whereBetween('latitude', [$latitude - (1/110.574 * $distance), $latitude + (1/110.574 * $distance)])->whereBetween('longitude', [$longitude - (1/111.320*cos($latitude) * $distance), $longitude + (1/111.320*cos($latitude) * $distance)]);
+                $query->selectRaw("
+                (6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) +
+                sin(radians($latitude)) * sin(radians(latitude)))) AS jarak")
+                ->having('jarak', '<=', $distance);
             });
             if($category && $category != 'all') !$foodQuery ? $foodQuery = Food::where('food_category_id', '=', $category) : $foodQuery = $foodQuery->where('food_category_id', '=', $category);
 
@@ -63,9 +69,15 @@ class FoodController extends Controller
 
             if($search) $foodQuery = Food::with('mitra')->where('name', 'like', '%'.$search.'%');
             if($distance) !$foodQuery ? $foodQuery = Food::with('mitra')->whereHas('mitra', function($query) use ($distance, $latitude, $longitude) {
-                $query->whereBetween('latitude', [$latitude - (1/110.574 * $distance), $latitude + (1/110.574 * $distance)])->whereBetween('longitude', [$longitude - (1/111.320*cos($latitude) * $distance), $longitude + (1/111.320*cos($latitude) * $distance)]);
+                $query->selectRaw("
+                (6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) +
+                sin(radians($latitude)) * sin(radians(latitude)))) AS jarak")
+                ->having('jarak', '<=', $distance);
             }) : $foodQuery = $foodQuery->whereHas('mitra', function ($query) use ($distance, $latitude, $longitude) {
-                $query->whereBetween('latitude', [$latitude - (1/110.574 * $distance), $latitude + (1/110.574 * $distance)])->whereBetween('longitude', [$longitude - (1/111.320*cos($latitude) * $distance), $longitude + (1/111.320*cos($latitude) * $distance)]);
+                $query->selectRaw("
+                (6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) +
+                sin(radians($latitude)) * sin(radians(latitude)))) AS jarak")
+                ->having('jarak', '<=', $distance);
             });
             if($category && $category != 'all') !$foodQuery ? $foodQuery = Food::with('mitra')->where('food_category_id', '=', $category) : $foodQuery = $foodQuery->where('food_category_id', '=', $category);
 
