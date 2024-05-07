@@ -108,6 +108,6 @@ class AuthController extends Controller
         $userMitra->save();
         
         return redirect()->route('registerMitra')
-            ->with('msg', 'Saat akun telah diverifikasi, anda akan mendapatkan email');
+            ->with('msg', 'Silahkan menunggu maksimal 2x24jam untuk verifikasi akun anda');
     }
 }
