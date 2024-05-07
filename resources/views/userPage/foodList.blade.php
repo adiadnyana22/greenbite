@@ -145,8 +145,8 @@
                 const marker = new AdvancedMarkerElement({
                     map: map,
                     position: {
-                        lat: food.mitra.latitude,
-                        lng: food.mitra.longitude,
+                        lat: parseFloat(food.mitra.latitude),
+                        lng: parseFloat(food.mitra.longitude),
                     },
                     title: food.name
                 });
