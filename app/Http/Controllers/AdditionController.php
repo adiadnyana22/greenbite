@@ -19,20 +19,9 @@ use Illuminate\Support\Facades\Mail;
 class AdditionController extends Controller
 {
     public function home() {
-        $distance = 5;
-        $latitude = Cookie::get('latitude');
-        $longitude = Cookie::get('longitude');
-
-        $foodList = Food::with('mitra')->whereHas('mitra', function($query) use ($distance, $latitude, $longitude) {
-            $query->selectRaw("
-                (6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) +
-                sin(radians($latitude)) * sin(radians(latitude)))) AS jarak")
-                ->having('jarak', '<=', $distance);
-        })->limit(4)->get();
         $newsList = News::limit(3)->get();
 
         return view('userPage.index')
-            ->with('foodList', $foodList)
             ->with('newsList', $newsList);
     }
 
@@ -42,7 +31,10 @@ class AdditionController extends Controller
         $longitude = Cookie::get('longitude');
 
         $foodList = Food::with('mitra')->whereHas('mitra', function($query) use ($distance, $latitude, $longitude) {
-            $query->whereBetween('latitude', [$latitude - (1/110.574 * $distance), $latitude + (1/110.574 * $distance)])->whereBetween('longitude', [$longitude - (1/111.320*cos($latitude) * $distance), $longitude + (1/111.320*cos($latitude) * $distance)]);
+            $query->selectRaw("
+                (6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) +
+                sin(radians($latitude)) * sin(radians(latitude)))) AS jarak")
+                ->having('jarak', '<=', $distance);
         })->limit(4)->get();
 
         return $foodList;
