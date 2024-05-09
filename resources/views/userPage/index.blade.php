@@ -131,7 +131,7 @@
                         <div class="text-2xl"><i class="bx bx-chevron-down"></i></div>
                     </div>
                     <p class="px-8 py-4 text-gray-500" x-show="open" style="display: none;">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi, debitis delectus dolorum ducimus, eligendi est et illo ipsum labore nisi numquam perspiciatis quaerat quas quisquam sint vero, voluptate voluptatem.
+                        GreenBite adalah aplikasi jual beli makanan berlebih yang memungkinkan mitra GreenBite untuk menjual makanan yang tidak habis terjual dan pengguna dapat membelinya di merchant terdekat dengan harga yang terjangkau
                     </p>
                 </li>
                 <li x-data="{ open: false }" class="mb-4">
@@ -140,7 +140,7 @@
                         <div class="text-2xl"><i class="bx bx-chevron-down"></i></div>
                     </div>
                     <p class="px-8 py-4 text-gray-500" x-show="open" style="display: none;">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi, debitis delectus dolorum ducimus, eligendi est et illo ipsum labore nisi numquam perspiciatis quaerat quas quisquam sint vero, voluptate voluptatem.
+                        Makanan yang didapatkan sangat tergantung pada penawaran setiap merchant, akan ada kategorisasi makanan yang bisa dipilih dan judul makanan akan merepresentasikan isi dari paket makanan yang akan anda terima
                     </p>
                 </li>
                 <li x-data="{ open: false }" class="mb-4">
@@ -149,7 +149,7 @@
                         <div class="text-2xl"><i class="bx bx-chevron-down"></i></div>
                     </div>
                     <p class="px-8 py-4 text-gray-500" x-show="open" style="display: none;">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi, debitis delectus dolorum ducimus, eligendi est et illo ipsum labore nisi numquam perspiciatis quaerat quas quisquam sint vero, voluptate voluptatem.
+                        Anda bisa melakukan registrasi dan login akun GreenBite terlebih dahulu, kemudian memilih dan memesan makanan yang ingin dibeli sampai berhasil melakukan pembayaran, dan akhirnya makanan tersebut dapat diambil langsung di merchat pilihan anda pada jam yang sudah ditentukan
                     </p>
                 </li>
             </ul>

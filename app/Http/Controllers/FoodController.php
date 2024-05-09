@@ -156,6 +156,10 @@ class FoodController extends Controller
         $order->status = 3;
         $order->save();
 
+        $user = Auth::user();
+        $user->coin = $user->coim + ($order->total_food_price * 0.05);
+        $user->save();
+
         return redirect()->route('history');
     }
 }
