@@ -34,7 +34,7 @@
     </li>     
     @endif
 
-    @if (\Illuminate\Support\Facades\Auth::user()->role_id == 2 && \Illuminate\Support\Facades\Auth::user()->mitra->mitra->status != 0)
+    @if (\Illuminate\Support\Facades\Auth::user()->role_id == 2 && \Illuminate\Support\Facades\Auth::user()->mitra->mitra->status == 1)
     <!-- Divider -->
     <hr class="sidebar-divider">
 
