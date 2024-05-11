@@ -41,7 +41,7 @@ class AuthController extends Controller
     public function registerUserMtd(Request $request) {
         $validateReq = $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|required_with:confirm_password|same:confirm_password',
             'confirm_password' => 'required',
         ]);
@@ -71,7 +71,7 @@ class AuthController extends Controller
     public function registerMitraMtd(Request $request) {
         $validateReq = $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|required_with:confirm_password|same:confirm_password',
             'confirm_password' => 'required',
             'store_name' => 'required',
