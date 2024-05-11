@@ -17,9 +17,11 @@
                 @method('POST')
                 <label for="email" class="block mb-8">Email :
                     <input type="email" id="email" name="email" placeholder="Enter your email ..." class="block w-full bg-gray-100 rounded-lg px-6 py-3 mt-1">
+                    @error('email')<p class="py-2 text-red-500 italic">{{ $message }}</p>@enderror
                 </label>
                 <label for="password" class="block mb-8">Password :
                     <input type="password" id="password" name="password" placeholder="Enter your password ..." class="block w-full bg-gray-100 rounded-lg px-6 py-3 mt-1">
+                    @error('password')<p class="py-2 text-red-500 italic">{{ $message }}</p>@enderror
                 </label>
                 <button class="block w-full bg-primary text-white rounded-lg px-6 py-3 font-bold tracking-wider my-12">Login</button>
             </form>
