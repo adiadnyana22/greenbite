@@ -4,12 +4,12 @@
 
 @section('content')
     <div class="min-h-screen w-screen" x-data="app">
-        <section class="p-24 pb-8">
+        <section class="p-12 sm:p-24 pb-8">
             <h1 class="text-4xl font-light">Register Mitra <strong class="font-bold"><span class="text-primary">Green</span>Bite</strong></h1>
             <form action="{{ route('registerMitraMtd') }}" class="mt-12" method="POST" enctype="multipart/form-data">
                 @method('POST')
                 @csrf
-                <div class="grid grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
                         <label for="name" class="block mb-4">Name :
                             <input type="text" id="name" name="name" placeholder="Enter your name ..." class="block w-full bg-gray-100 rounded-lg px-6 py-3 mt-1">

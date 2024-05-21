@@ -5,12 +5,12 @@
 @section('content')
     @include('userComponent.header')
 
-    <div class="w-screen bg-tertiary grid grid-cols-2">
-        <div class="sticky top-0 h-screen">
+    <div class="w-screen bg-tertiary grid grid-cols-1 lg:grid-cols-2">
+        <div class="sticky top-0 h-screen hidden lg:block">
             <div id="map" class="h-screen"></div>
         </div>
-        <section class="px-12">
-            <div class="sticky top-0 z-10 bg-tertiary pb-3 pt-[150px]">
+        <section class="px-3 sm:px-12">
+            <div class="sticky top-0 z-10 bg-tertiary pb-3 pt-[125px] lg:pt-[150px]">
                 <h1 class="text-4xl font-bold mb-6">Food List</h1>
                 <form action="" method="GET" id="form">
                     <div class="relative">

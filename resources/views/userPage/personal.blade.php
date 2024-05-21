@@ -4,13 +4,13 @@
 
 @section('content')
     <!-- News Detail -->
-    <section class="pt-[175px] pb-16">
+    <section class="pt-[125px] md:pt-[150px] lg:pt-[175px] pb-16">
         <div class="container mx-auto">
-            <div class="flex gap-8 my-3 items-start">
-                <ul class="sticky flex flex-col px-8 gap-6 w-80">
-                    <li><a href="{{ route('profile') }}" class="text-white text-lg bg-primary block px-4 py-2 rounded transition hover:bg-primary hover:text-white">Personal Info</a></li>
+            <div class="flex flex-col md:flex-row gap-8 my-3 items-start">
+                <ul class="sticky flex flex-row md:flex-col px-1 md:px-8 gap-2 md:gap-6 w-full md:w-80">
+                    <li class="w-full"><a href="{{ route('profile') }}" class="text-white text-lg bg-primary block px-4 py-2 rounded transition hover:bg-primary hover:text-white">Personal Info</a></li>
                     <hr>
-                    <li><a href="{{ route('voucher') }}" class="text-gray-400 text-lg block px-4 py-2 rounded transition hover:bg-primary hover:text-white">Voucher</a></li>
+                    <li class="w-full"><a href="{{ route('voucher') }}" class="text-gray-400 text-lg bg-gray-100 block px-4 py-2 rounded transition hover:bg-primary hover:text-white">Voucher</a></li>
                 </ul>
                 <div class="w-full">
                     <h1 class="text-3xl font-bold mb-4">Personal Info</h1>

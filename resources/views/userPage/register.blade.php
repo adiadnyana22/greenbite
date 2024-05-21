@@ -3,11 +3,11 @@
 @section('title', 'GreenBite')
 
 @section('content')
-    <div class="min-h-screen w-screen grid grid-cols-2 items-start">
-        <section class="bg-tertiary shadow-lg flex justify-center items-center h-screen sticky top-0">
+    <div class="min-h-screen w-screen grid grid-cols-1 lg:grid-cols-2 items-start">
+        <section class="bg-tertiary shadow-lg flex justify-center items-center h-screen sticky top-0 hidden lg:flex">
             <img src="{{ asset('assets/user/images/auth.png') }}" alt="Login" class="w-5/6 mx-auto">
         </section>
-        <section class="p-24 pb-8">
+        <section class="p-12 sm:p-24 pb-8">
             <h1 class="text-4xl font-light">Register <strong class="font-bold"><span class="text-primary">Green</span>Bite</strong></h1>
             <form action="{{ route('registerUserMtd') }}" class="mt-12" method="POST">
                 @csrf

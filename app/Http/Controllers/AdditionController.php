@@ -73,7 +73,7 @@ class AdditionController extends Controller
     }
 
     public function history() {
-        $orderList = Order::where('user_id', '=', Auth::user()->id)->get();
+        $orderList = Order::where('user_id', '=', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 
         return view('userPage.history')
             ->with('orderList', $orderList);

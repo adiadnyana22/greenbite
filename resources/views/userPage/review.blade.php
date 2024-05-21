@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="h-screen w-screen bg-[#F4F4F4]">
-        <div class="h-screen max-w-full w-[700px] mx-auto pl-24 pt-12 pr-16 pb-16 overflow-auto" x-data="{ isTaCChecked: false }">
+        <div class="h-screen max-w-full w-[700px] mx-auto px-4 sm:px-16 pt-12 pb-16 overflow-auto" x-data="{ isTaCChecked: false }">
             <form action="{{ route('reviewMtd') }}" method="POST" x-data="{ star : 0 }">
                 @csrf
                 @method('POST')

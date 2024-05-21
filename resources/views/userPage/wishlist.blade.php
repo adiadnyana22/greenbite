@@ -4,13 +4,13 @@
 
 @section('content')
     <!-- News -->
-    <section class="pt-[200px] pb-16">
+    <section class="pt-[150px] lg:pt-[200px] pb-16">
         <div class="container mx-auto">
             <div>
                 <div class="flex justify-between items-center mb-8">
                     <h1 class="text-5xl font-bold">Wishlist</h1>
                 </div>
-                <div class="grid grid-cols-3 gap-4 my-8" x-data="data()">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8" x-data="data()">
                     @foreach ($wishlistList as $wishlist)
                     <a href="{{ route('foodDetail', $wishlist->food->id) }}" class="rounded-lg shadow-lg">
                         <div class="relative h-32 w-full">

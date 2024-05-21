@@ -8,7 +8,7 @@
 
 @section('content')
     <!-- News -->
-    <section class="pt-[200px] pb-16">
+    <section class="pt-[150px] lg:pt-[200px] pb-16">
         <div class="container mx-auto">
             <div>
                 <div class="flex justify-between items-center mb-8">
@@ -16,33 +16,33 @@
                 </div>
                 @foreach ($orderList as $order)
                 <div class="my-3 bg-secondary rounded-lg" x-data="{ modelOpen: false }">
-                    <div class="bg-white rounded-lg border border-gray-400/20 transition hover:border-black px-8 py-6 flex gap-3 justify-between w-full cursor-pointer" @click="modelOpen = true;">
+                    <div class="bg-white rounded-lg border border-gray-400/20 transition hover:border-black px-8 py-6 block sm:flex gap-3 justify-between w-full cursor-pointer" @click="modelOpen = true;">
                         <div>
                             <p class="text-sm mb-5">{{ \Carbon\Carbon::parse($order->date)->format('l, d F Y') }}</p>
                             <h2 class="text-2xl font-bold">{{ $order->food->name }}</h2>
                             <h3 class="mb-3">{{ $order->food->mitra->name }}</h3>
                             <span class="text-gray-400">Pickup Time : {{ \Carbon\Carbon::createFromFormat('H:i:s', $order->food->start_pickup)->format('H:i') }} - {{ \Carbon\Carbon::createFromFormat('H:i:s', $order->food->end_pickup)->format('H:i') }}</span>
                         </div>
-                        <div class="flex flex-col justify-between items-end gap-2">
-                            <div class="flex gap-2">
+                        <div class="flex flex-col-reverse sm:flex-col justify-between items-stretch sm:items-end gap-2 mt-4 sm:mt-0">
+                            <div class="flex gap-2 w-full sm:w-auto">
                                 @if ($order->status == 0)
-                                <div class="rounded-full bg-yellow-500 px-4 py-2 text-white border border-yellow-500">Wating for payment</div>
+                                <div class="rounded-full bg-yellow-500 px-4 py-2 text-white border border-yellow-500 text-center w-full sm:w-auto">Wating for payment</div>
                                 @endif
                                 @if ($order->status == 1)
                                     @if (\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', substr($order->date, 0, 10).' '.$order->food->end_pickup)->lt(\Carbon\Carbon::now()))
-                                    <div class="rounded-full bg-red-500 px-4 py-2 text-white border border-red-500">Order Expired</div>
+                                    <div class="rounded-full bg-red-500 px-4 py-2 text-white border border-red-500 text-center w-full sm:w-auto">Order Expired</div>
                                     @else
-                                    <div class="rounded-full bg-primary px-4 py-2 text-white border border-primary">Wating for pickup</div>
+                                    <div class="rounded-full bg-primary px-4 py-2 text-white border border-primary text-center w-full sm:w-auto">Wating for pickup</div>
                                     @endif
                                 @endif
                                 @if ($order->status == 2)
-                                <div class="rounded-full bg-primary px-4 py-2 text-white border border-primary">Wating for review</div>
+                                <div class="rounded-full bg-primary px-4 py-2 text-white border border-primary text-center w-full sm:w-auto">Wating for review</div>
                                 @endif
                                 @if ($order->status == 3)
-                                <div class="rounded-full bg-secondary px-4 py-2 text-white border border-secondary">Order Complete</div>
+                                <div class="rounded-full bg-secondary px-4 py-2 text-white border border-secondary text-center w-full sm:w-auto">Order Complete</div>
                                 @endif
                                 @if ($order->status == 9)
-                                <div class="rounded-full bg-red-500 px-4 py-2 text-white border border-red-500">Order Fail</div>
+                                <div class="rounded-full bg-red-500 px-4 py-2 text-white border border-red-500 text-center w-full sm:w-auto">Order Fail</div>
                                 @endif
                             </div>
                             <div class="flex gap-3 items-end">

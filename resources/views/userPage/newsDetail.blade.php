@@ -4,10 +4,10 @@
 
 @section('content')
     <!-- News Detail -->
-    <section class="pt-[175px] pb-16">
+    <section class="pt-[125px] md:pt-[150px] lg:pt-[175px] pb-16">
         <div class="container mx-auto">
-            <div class="flex gap-8 my-3 items-start">
-                <div class="sticky top-24 flex flex-col items-center px-8 pt-12 gap-6">
+            <div class="flex flex-col-reverse md:flex-row gap-8 my-3 items-start">
+                <div class="sticky top-24 flex flex-col items-center px-8 pt-12 gap-6 w-full md:w-auto">
                     <span>Bagikan</span>
                     <button type="button" onClick="navigator.clipboard.writeText(window.location.href)" class="text-2xl rounded-full h-12 w-12 bg-primary text-white flex items-center justify-center transition hover:bg-gray/75"><i class='bx bx-link'></i></butto>
                 </div>

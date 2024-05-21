@@ -3,11 +3,11 @@
 @section('title', 'GreenBite')
 
 @section('content')
-    <div class="h-screen w-screen grid grid-cols-2">
-        <section class="bg-tertiary shadow-lg flex justify-center items-center">
+    <div class="h-screen w-screen grid grid-cols-1 lg:grid-cols-2">
+        <section class="bg-tertiary shadow-lg flex justify-center items-center hidden lg:flex">
             <img src="{{ asset('assets/user/images/auth.png') }}" alt="Login" class="w-5/6 mx-auto">
         </section>
-        <section class="p-24 pb-8">
+        <section class="p-12 sm:p-24 pb-8">
             <h1 class="text-4xl font-light pb-6">Login <strong class="font-bold"><span class="text-primary">Green</span>Bite</strong></h1>
             @error('login')
             <p class="py-2 text-red-500 italic">{{ $message }}</p>

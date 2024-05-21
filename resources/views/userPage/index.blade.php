@@ -4,19 +4,19 @@
 
 @section('content')
     <!-- Banner -->
-    <section class="pt-[150px] pb-16 box-border bg-tertiary h-screen">
-        <div class="container mx-auto h-full">
+    <section class="box-border bg-tertiary min-h-screen">
+        <div class="pt-[150px] pb-16 container mx-auto h-screen min-h-screen">
             <div class="flex gap-8 justify-between items-center h-full">
                 <div>
                     <!-- <span class="font-light text-lg">GreenBite</span> -->
-                    <h1 class="font-bold text-7xl leading-tight py-2">Bersama Kurangi<br><span class="text-primary">Food Waste<span></h1>
+                    <h1 class="font-bold text-5xl md:text-7xl leading-tight md:leading-tight py-2">Bersama Kurangi<br><span class="text-primary">Food Waste<span></h1>
                     <p class="mb-6">
                         Mulai dari diri sendiri, untuk dunia yang lebih baik
                     </p>
                     <a href="{{ route('foodList') }}" class="text-white bg-secondary rounded-lg px-8 py-2 mt-2 mb-4 inline-block borer border-secondary">Lihat Makanan di Sekitar</a>
                 </div>
                 <div class="place-self-center">
-                    <div id="map" class="w-[600px] h-[450px] rounded-lg shadow-lg"></div>
+                    <div id="map" class="hidden lg:block max-w-full w-[600px] h-[450px] rounded-lg shadow-lg"></div>
                 </div>
             </div>
         </div>
@@ -27,12 +27,12 @@
         <div class="container mx-auto">
             <div class="flex gap-2 justify-between items-end">
                 <div>
-                    <h2 class="text-center font-bold text-3xl mt-4">Makanan Terdekat</h2>
+                    <h2 class="font-bold text-3xl mt-4">Makanan Terdekat</h2>
                 </div>
                 <a href="{{ route('foodList') }}" class="flex items-center gap-1 transition hover:text-primary">Lihat lebih banyak <i class='bx bx-chevron-right text-lg' ></i></a>
             </div>
            
-            <div class="grid grid-cols-4 gap-4 my-8" id="foodList">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8" id="foodList">
                 <!-- By API -->
             </div>
             <svg class="animate-spin -ml-1 mr-3 h-12 w-12 text-black flex items-center w-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="loading">
@@ -46,7 +46,7 @@
     <section class="py-12">
         <div class="container mx-auto">
             <h2 class="text-center text-3xl font-bold mb-8">Kategori</h2>
-            <div class="flex justify-center items-center gap-6 mb-12">
+            <div class="flex justify-center items-center gap-2 lg:gap-6 mb-12 flex-wrap">
                 <a href="{{ route('foodList', ['category' => 1]) }}" class="relative rounded-lg shadow-lg">
                     <img src="{{ asset('assets/user/images/food/11.jpeg') }}" alt="Pastry" class="h-48 w-48 object-cover rounded-lg">
                     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/75 rounded-lg"></div>
@@ -74,7 +74,7 @@
     <!-- Informasi -->
     <section class="py-12">
         <div class="container mx-auto">
-            <div class="rounded-lg bg-tertiary flex justify-between items-center gap-24 px-12 py-10 shadow-lg">
+            <div class="rounded-lg bg-tertiary flex flex-col md:flex-row justify-between items-center gap-24 px-12 py-10 shadow-lg">
                 <div class="grow w-3/4">
                     <img src="{{ asset('assets/user/images/info.png') }}" alt="Informasi">
                 </div>
@@ -105,11 +105,11 @@
             <div class="flex gap-2 justify-between items-end">
                 <div>
                     <h2 class="font-bold text-3xl mt-4">Artikel Terbaru</h2>
-                    <p class="text-gray-500 text-sm">Pembahasan seputar food waste dan pemanfaatan makanan</p>
+                    <p class="hidden md:block text-gray-500 text-sm">Pembahasan seputar food waste dan pemanfaatan makanan</p>
                 </div>
                 <a href="{{ route('newsList') }}" class="flex items-center gap-1 transition hover:text-primary">Lihat lebih banyak <i class='bx bx-chevron-right text-lg' ></i></a>
             </div>
-            <div class="grid grid-cols-3 gap-4 my-8">
+            <div class="grid grid-col-1 md:grid-cols-3 gap-4 my-8">
                 @foreach ($newsList as $news)
                 <a href="{{ route('newsDetail', $news->id) }}">
                     <img src="{{ asset('assets/user/images/news/'.$news->image) }}" alt="Artikel" class="h-48 w-full object-cover rounded-lg">

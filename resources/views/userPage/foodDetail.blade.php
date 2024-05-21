@@ -14,9 +14,9 @@
 
 @section('content')
     <!-- News -->
-    <section class="pt-[175px] pb-16">
+    <section class="pt-[125px] md:pt-[150px] lg:pt-[175px] pb-16">
         <div class="container mx-auto">
-            <div class="flex items-start gap-12" x-data="data()">
+            <div class="flex flex-col lg:flex-row items-start gap-12" x-data="data()">
                 <div class="basis-3/5">
                     <div class="relative">
                         <img src="{{ asset('assets/user/images/food/'.$food->food_category_id.($food->id % 4 + 1).'.jpeg') }}" alt="{{ $food->name }}" class="w-full h-96 object-cover rounded-lg">
