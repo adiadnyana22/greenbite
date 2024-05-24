@@ -3,7 +3,7 @@
 @section('title', 'GreenBite')
 
 @section('content')
-    <section class="h-screen w-screen bg-[#F4F4F4]" x-data="{ count: 0, coin: {{ $coinNominal }}, voucher: {{ $voucherNominal }} }">
+    <section class="h-screen w-screen bg-[#F4F4F4]" x-data="{ coin: {{ $coinNominal }}, voucher: {{ $voucherNominal }} }">
         <div class="h-screen max-w-full w-[700px] mx-auto px-4 sm:px-16 pt-12 pb-16 overflow-auto">
             <div>
                 <div class="mt-6 mb-4">
@@ -28,14 +28,7 @@
                         <span class="font-bold text-lg">Total Pembayaran</span>
                         <span class="font-bold text-lg">Rp{{ number_format($grandTotal) }}</span>
                     </div>
-                    <button type="button" id="pay" class="rounded bg-primary px-4 py-3 text-center text-white block w-full mb-2 mt-8 border border-primary transition hover:text-primary hover:bg-transparent" @click="count = 1" x-show="count == 0">Bayar</button>
-                    <div class="flex justify-center items-center px-4 py-2 mt-4 mb-2 rounded bg-gray-500 text-white" x-show="count == 1">
-                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Transaksi sedang diproses
-                    </div>
+                    <button type="button" id="pay" class="rounded bg-primary px-4 py-3 text-center text-white block w-full mb-2 mt-8 border border-primary transition hover:text-primary hover:bg-transparent">Bayar</button>
                 </div>
             </div>
         </div>
