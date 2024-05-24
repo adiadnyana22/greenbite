@@ -43,9 +43,6 @@ class FoodController extends Controller
         if($search || $distance || ($category && $category != 'all')) {
             $foodQuery = null;
 
-            if($search) $foodQuery = Food::with('mitra')->where('name', 'like', '%'.$search.'%')->orWhereHas('mitra', function($query) use ($search) {
-                $query->where('name', 'like', "%".$search."%");
-            });
             if($distance) !$foodQuery ? $foodQuery = Food::with('mitra')->whereHas('mitra', function($query) use ($distance, $latitude, $longitude) {
                 $query->selectRaw("
                 (6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) +
@@ -58,6 +55,15 @@ class FoodController extends Controller
                 ->having('jarak', '<=', $distance);
             });
             if($category && $category != 'all') !$foodQuery ? $foodQuery = Food::with('mitra')->where('food_category_id', '=', $category) : $foodQuery = $foodQuery->where('food_category_id', '=', $category);
+            if($search) !$foodQuery ? $foodQuery = Food::with('mitra')->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%'.$search.'%')->orWhereHas('mitra', function($query) use ($search) {
+                    $query->where('name', 'like', "%".$search."%");
+                });
+            }) : $foodQuery->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%'.$search.'%')->orWhereHas('mitra', function($query) use ($search) {
+                    $query->where('name', 'like', "%".$search."%");
+                });
+            });
 
             $foodList = $foodQuery->get();
         }
