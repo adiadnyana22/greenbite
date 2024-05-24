@@ -56,6 +56,9 @@
                                 <td>{{ $order->food->name }}</td>
                                 <td>{{ $order->qty }}</td>
                                 <td>{{ $order->user->name }}</td>
+                                @if ($order->status == 0)
+                                <td class="text-danger">Fail</td>
+                                @endif
                                 @if ($order->status == 1 && \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', substr($order->date, 0, 10).' '.$order->food->end_pickup)->lt(\Carbon\Carbon::now()))
                                 <td class="text-danger">Expired</td>
                                 @elseif ($order->status == 1)
