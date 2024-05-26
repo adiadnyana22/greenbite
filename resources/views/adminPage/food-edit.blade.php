@@ -27,12 +27,12 @@
                     @error('stock')<p class="text-danger mt-1">{{ $message }}</p>@enderror
                 </div>
                 <div class="mb-3 row">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <label class="form-label">Minimum Jumlah Makanan Dalam Satu Paket</label>
                         <input type="number" class="form-control" name="min_qty" value="{{ $food->min_qty }}" placeholder="Minimum Jumlah Makanan Dalam Satu Paket ..." required>
                         @error('min_qty')<p class="text-danger mt-1">{{ $message }}</p>@enderror
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <label class="form-label">Maksimum Jumlah Makanan Dalam Satu Paket</label>
                         <input type="number" class="form-control" name="max_qty" value="{{ $food->max_qty }}" placeholder="Maksimum Jumlah Makanan Dalam Satu Paket ..." required>
                         @error('max_qty')<p class="text-danger mt-1">{{ $message }}</p>@enderror
@@ -44,24 +44,24 @@
                     @error('day_to_expiration')<p class="text-danger mt-1">{{ $message }}</p>@enderror
                 </div>
                 <div class="mb-3 row">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <label class="form-label">Jam Awal Pengambilan Makanan</label>
                         <input type="time" class="form-control" name="start_pickup" value="{{ $food->start_pickup }}" placeholder="Jam Awal Pengambilan Makanan ..." required>
                         @error('start_pickup')<p class="text-danger mt-1">{{ $message }}</p>@enderror
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <label class="form-label">Jam Akhir Pengambilan Makanan</label>
                         <input type="time" class="form-control" name="end_pickup" value="{{ $food->end_pickup }}" placeholder="Jam Akhir Pengambilan Makanan ..." required>
                         @error('end_pickup')<p class="text-danger mt-1">{{ $message }}</p>@enderror
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <label class="form-label">Harga Normal</label>
                         <input type="number" class="form-control" name="normal_price" value="{{ $food->normal_price }}" placeholder="Harga Normal ..." required>
                         @error('normal_price')<p class="text-danger mt-1">{{ $message }}</p>@enderror
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <label class="form-label">Harga Sekarang</label>
                         <input type="number" class="form-control" name="current_price" value="{{ $food->current_price }}" placeholder="Harga Sekarang ..." required>
                         @error('current_price')<p class="text-danger mt-1">{{ $message }}</p>@enderror

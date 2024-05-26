@@ -22,10 +22,10 @@
                         <div class="col-12">
                             <b>Nama Makanan</b> : {{ $order->food->name }}
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Nama Pemesan</b> : {{ $order->user->name }}
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Email Pemesan</b> : {{ $order->user->email }}
                         </div>
                     </div>

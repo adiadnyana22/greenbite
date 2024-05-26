@@ -23,42 +23,42 @@
                         <b>Stok</b> : {{ $food->stock }}
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Kategori Makanan</b> : {{ $food->category->name }}
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Jumlah Hari Sebelum Kedaluwarsa</b> : {{ $food->day_to_expiration }}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Rating</b> : {{ $food->rating }} / 5 <i class="fas fa-star"></i>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Jumlah Penilaian</b> : {{ $food->order_count }}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Minimum Jumlah Makanan Dalam Satu Paket</b> : {{ $food->min_qty }}
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Makimum Jumlah Makanan Dalam Satu Paket</b> : {{ $food->max_qty }}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Jam Awal Pengambilan Makanan</b> : {{ $food->start_pickup }}
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Jam Akhir Pengambilan Makanan</b> : {{ $food->end_pickup }}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Harga Normal</b> : {{ number_format($food->normal_price) }}
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <b>Harga Sekarang</b> : {{ number_format($food->current_price) }}
                         </div>
                     </div>
