@@ -34,6 +34,8 @@
             if(response.status == 1) {
                 const transaction = response.transaction;
 
+                if($('#qrModal').length > 0 && $('#qrModal').hasClass('show')) return;
+
                 $('#qrModalContainer').html(`
                 <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
