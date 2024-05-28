@@ -15,7 +15,7 @@ class AdminDashboardController extends Controller
         
         $count = 0;
         if(Auth::user()->role_id == 2) {
-            $orderList = Mitra::where('id', '=', Auth::user()->mitra->id)->first()->mitraOrderOngoing();
+            $orderList = Mitra::where('id', '=', Auth::user()->mitra->mitra_id)->first()->mitraOrderOngoing();
             foreach($orderList as $order) {
                 if(Carbon::createFromFormat('Y-m-d H:i:s', substr($order->date, 0, 10).' '.$order->food->end_pickup)->gt(Carbon::now())) $count = $count + 1;
             }

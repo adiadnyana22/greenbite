@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminFoodController extends Controller
 {
     public function foodListPage() {
-        $foodList = Food::where('mitra_id', '=', Auth::user()->mitra->id)->get();
+        $foodList = Food::where('mitra_id', '=', Auth::user()->mitra->mitra_id)->get();
 
         return view('adminPage.food')->with('foodList', $foodList);
     }

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminOrderController extends Controller
 {
     public function orderListPage() {
-        $orderList = Mitra::where('id', '=', Auth::user()->mitra->id)->first()->mitraOrder();
+        $orderList = Mitra::where('id', '=', Auth::user()->mitra->mitra_id)->first()->mitraOrder();
 
         return view('adminPage.order')->with('orderList', $orderList);
     }
@@ -38,7 +38,7 @@ class AdminOrderController extends Controller
 
         $transaction = Order::where('order_code', '=', $request->transaction_code)->with('food')->with('user')->first();
 
-        if(!$transaction || $transaction->status != 1 || $transaction->food->mitra_id != Auth::user()->mitra->id || Carbon::createFromFormat('Y-m-d H:i:s', substr($transaction->date, 0, 10).' '.$transaction->food->end_pickup)->lt(Carbon::now())) return [ 'status' => 0 ];
+        if(!$transaction || $transaction->status != 1 || $transaction->food->mitra_id != Auth::user()->mitra->mitra_id || Carbon::createFromFormat('Y-m-d H:i:s', substr($transaction->date, 0, 10).' '.$transaction->food->end_pickup)->lt(Carbon::now())) return [ 'status' => 0 ];
 
         return [ 'status' => 1, 'transaction' =>  $transaction];
     }
