@@ -45,8 +45,8 @@ class AdminFoodController extends Controller
         $food->day_to_expiration = $request->day_to_expiration;
         $food->start_pickup = $request->start_pickup;
         $food->end_pickup = $request->end_pickup;
-        $food->normal_price = $request->normal_price;
-        $food->current_price = $request->current_price;
+        $food->normal_price = str_replace('.', '', $request->normal_price);
+        $food->current_price = str_replace('.', '', $request->current_price);
         $food->food_category_id = $request->category;
         $food->save();
 
@@ -80,8 +80,8 @@ class AdminFoodController extends Controller
         $food->day_to_expiration = $request->day_to_expiration;
         $food->start_pickup = $request->start_pickup;
         $food->end_pickup = $request->end_pickup;
-        $food->normal_price = $request->normal_price;
-        $food->current_price = $request->current_price;
+        $food->normal_price = str_replace('.', '', $request->normal_price);
+        $food->current_price = str_replace('.', '', $request->current_price);
         $food->food_category_id = $request->category;
         $food->mitra_id = Auth::user()->mitra->mitra_id;
         $food->rating = 0;
