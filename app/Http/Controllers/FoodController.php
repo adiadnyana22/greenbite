@@ -133,7 +133,7 @@ class FoodController extends Controller
 
         $food = $order->food;
 
-        $food->rating = (($food->order_count * $food->rating) + $request->rating) / ($food->order_count + 1);
+        $food->rating = round((($food->order_count * $food->rating) + $request->rating) / ($food->order_count + 1), 2);
         $food->order_count += 1;
         $food->save();
 
