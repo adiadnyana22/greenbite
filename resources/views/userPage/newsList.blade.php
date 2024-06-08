@@ -20,9 +20,9 @@
                         <img src="{{ asset('assets/user/images/news/'.$news->image) }}" alt="{{ $news->name }}" class="basis-3/12 w-full md:w-3/12 h-48 rounded object-cover">
                         <div class="flex flex-col justify-between basis-9/12">
                             <div>
-                                <h2 class="text-2xl font-bold">{{ $news->title }}</h2>
+                                <h2 class="text-2xl font-bold line-clamp-2">{{ $news->title }}</h2>
                                 <span class="text-gray-400 mb-4 block">{{ \Carbon\Carbon::parse($news->date)->format('l, d F Y') }}</span>
-                                <p class="text-gray-500">
+                                <p class="text-gray-500 line-clamp-4">
                                     {{ strip_tags($news->content) }}
                                 </p>
                             </div>

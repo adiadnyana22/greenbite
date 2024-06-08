@@ -113,7 +113,7 @@
                 @foreach ($newsList as $news)
                 <a href="{{ route('newsDetail', $news->id) }}">
                     <img src="{{ asset('assets/user/images/news/'.$news->image) }}" alt="Artikel" class="h-48 w-full object-cover rounded-lg">
-                    <h3 class="text-xl my-2">{{ $news->title }}</h3>
+                    <h3 class="text-xl my-2 line-clamp-2">{{ $news->title }}</h3>
                 </a>
                 @endforeach
             </div>
